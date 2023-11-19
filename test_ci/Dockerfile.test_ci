@@ -1,0 +1,46 @@
+# Utilisation d'une image Alpine légère comme image de base
+#FROM python:3.8-alpine
+FROM python:3.9-alpine
+
+# Répertoire de travail /app/tests
+#WORKDIR /app/tests
+WORKDIR /tests
+
+# Copie de tous les fichiers de test dans le répertoire /app/tests du conteneur
+# rendre le fichier run_tests.sh executable 
+COPY ./requirements.txt /tests/
+COPY ./test_authen.py /tests/
+COPY ./test_autho.py /tests/
+COPY ./test_create_user.py /tests/
+COPY ./test_delete_user.py /tests/
+COPY ./test_predimage.py /tests/
+COPY ./test_predtexte.py /tests/
+COPY ./run_tests.sh /tests/ 
+
+# Installation des dépendances (requests)
+#RUN pip install requests
+
+# installation des librairies à partir du fichier requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+# Rendre le script exécutable
+RUN chmod +x /tests/run_tests.sh
+
+# Le cronjob est configuré pour s'exécuter quotidiennement à minuit (00:00)
+#RUN echo "0 0 * * * /app/tests/run_tests1.sh > /app/tests/log.txt 2>&1 && cp /app/tests/log.txt /home/workspace_2/test_CI_CD" >> /var/spool/cron/crontabs/root
+# permet de rediriger la sortie de la commande echo  vers le fichier  /var/spool/cron/crontabs/root
+# et d'ajouter ainsi la tâche cron à la configuration de l'utilisateur root. 
+
+# Exécuter cron en arrière-plan 
+#CMD ["crond", "-f"] 
+
+# Commande pour exécuter les tests
+#CMD ["python", "test_authen.py"]
+#CMD ["./run_tests.sh"]
+#CMD ["/app/tests/run_tests.sh"]
+CMD ["/tests/run_tests.sh"] > log.txt
+
+# Exécution cron en arrière-plan
+#CMD crond -f -d 8 & /app/tests/run_tests1.sh > log.txt
+# -d 8  active le niveau de débogage 8 pour crond qui affiche des informations de débogage supplémentaires
+
