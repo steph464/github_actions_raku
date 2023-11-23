@@ -25,14 +25,6 @@ jobs:
       - name: Start Docker Compose services
         run: docker-compose -f ./docker-compose.yml up -d
 
-        ########################################################            
-      - name: Wait for API server to be ready
-        run: |
-          # Add a script to wait for the API server to be ready before proceeding
-          # Example: wait-for-it.sh script (https://github.com/vishnubob/wait-for-it)
-          chmod +x ./wait-for-it.sh
-          ./wait-for-it.sh localhost:8000 -t 100
-
       - name: Show Docker Compose processes
         run: docker-compose ps
   
