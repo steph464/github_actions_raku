@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ################### Modification du répertoire #######################################
-cd /test_ci
+#root@Stphane:/home/clone_git_hub_actions_raku/github_actions_raku/test_ci# pwd
+cd /home/clone_git_hub_actions_raku/github_actions_raku/test_ci
 ######################################################################################
 
 # Exécution de tous les fichiers de test
