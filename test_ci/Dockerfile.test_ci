@@ -38,7 +38,7 @@ RUN chmod +x /tests/run_tests.sh
 #CMD ["python", "test_authen.py"]
 #CMD ["./run_tests.sh"]
 #CMD ["/app/tests/run_tests.sh"]
-CMD ["/tests/run_tests.sh"] > log.txt
+CMD ["/test_ci/run_tests.sh"] > logs.txt  
 
 # Exécution cron en arrière-plan
 #CMD crond -f -d 8 & /app/tests/run_tests1.sh > log.txt
