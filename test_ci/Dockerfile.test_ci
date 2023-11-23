@@ -4,18 +4,20 @@ FROM python:3.9-alpine
 
 # Répertoire de travail /app/tests
 #WORKDIR /app/tests
-WORKDIR /tests
+#WORKDIR /tests
+WORKDIR /test_ci
 
 # Copie de tous les fichiers de test dans le répertoire /app/tests du conteneur
 # rendre le fichier run_tests.sh executable 
-COPY ./requirements.txt /tests/
-COPY ./test_authen.py /tests/
-COPY ./test_autho.py /tests/
-COPY ./test_create_user.py /tests/
-COPY ./test_delete_user.py /tests/
-COPY ./test_predimage.py /tests/
-COPY ./test_predtexte.py /tests/
-COPY ./run_tests.sh /tests/ 
+#COPY ./requirements.txt /tests/
+#COPY ./test_authen.py /tests/
+#COPY ./test_autho.py /tests/
+#COPY ./test_create_user.py /tests/
+#COPY ./test_delete_user.py /tests/
+#COPY ./test_predimage.py /tests/
+#COPY ./test_predtexte.py /tests/
+#COPY ./run_tests.sh /tests/ 
+COPY . .
 
 # Installation des dépendances (requests)
 #RUN pip install requests
