@@ -34,7 +34,9 @@ jobs:
 
       - name: Run tests
         #run: ./run_tests.sh
-        run: test_ci/run_tests.sh
+        run: |
+          cd test_ci
+          run_tests.sh
 
 
 
