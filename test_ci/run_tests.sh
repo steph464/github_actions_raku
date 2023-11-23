@@ -1,5 +1,9 @@
 #!/bin/bash
 
+################### Modification du répertoire #######################################
+cd test_ci
+######################################################################################
+
 # Exécution de tous les fichiers de test
 python test_authen.py
 python test_autho.py
