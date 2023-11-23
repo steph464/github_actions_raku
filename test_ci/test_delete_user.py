@@ -12,7 +12,8 @@ from app_V2.user.user_db import delete_user, load_users
 
 # Définition de l'adresse de l'API et du port
 api_address = 'localhost'  # adresse de votre API
-api_port = 8000
+#api_port = 8000
+api_port = 8005
 
 def test_delete_user(admin_username, admin_password, username_to_delete, expected_status_code): 
     # Charger les utilisateurs depuis la base de données
