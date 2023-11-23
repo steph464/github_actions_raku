@@ -20,6 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd test_ci
           pip install -r requirements.txt
 
       - name: Run tests
@@ -27,7 +28,7 @@ jobs:
         run: test_ci/run_tests.sh
 
 #####################################################################
-      - name: Expose application on port 8005
-        run: python -m http.server 8005 &
-        env:
-          Test CI: true
+#      - name: Expose application on port 8005
+#        run: python -m http.server 8005 &
+#        env:
+#          Test CI: true
