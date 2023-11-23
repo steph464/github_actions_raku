@@ -26,7 +26,9 @@ COPY . .
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Rendre le script exécutable
-RUN chmod +x /tests/run_tests.sh
+# /!\ A MODIFIER    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#RUN chmod +x /tests/run_tests.sh
+RUN chmod +x /test_ci/run_tests.sh
 
 # Le cronjob est configuré pour s'exécuter quotidiennement à minuit (00:00)
 #RUN echo "0 0 * * * /app/tests/run_tests1.sh > /app/tests/log.txt 2>&1 && cp /app/tests/log.txt /home/workspace_2/test_CI_CD" >> /var/spool/cron/crontabs/root
