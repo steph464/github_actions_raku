@@ -2,7 +2,15 @@
 
 ################### Modification du répertoire #######################################
 #root@Stphane:/home/clone_git_hub_actions_raku/github_actions_raku/test_ci# pwd
-cd /home/clone_git_hub_actions_raku/github_actions_raku/test_ci
+#cd /home/clone_git_hub_actions_raku/github_actions_raku/test_ci
+
+# Change to the directory containing the script
+cd "$(dirname "$0")"
+ls  # Liste le contenu du répertoire
+
+# Change to the test_ci directory
+cd /test_ci
+ls  # Liste le contenu du répertoire
 ######################################################################################
 
 # Exécution de tous les fichiers de test
