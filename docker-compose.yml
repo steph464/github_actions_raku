@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile.app
     ports:
       - "8005:8000"
+    networks:
+      - network_rakuten
     volumes:
       - ./app_V2:/app
       - ./BDD:/BDD
@@ -16,6 +18,8 @@ services:
     build:
       context: ./test_ci
       dockerfile: Dockerfile.test_ci
+    networks:
+      - network_rakuten
     volumes:
       - ./test_ci:/test_ci
     depends_on:
