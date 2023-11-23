@@ -27,9 +27,14 @@ jobs:
         #run: ./run_tests.sh
         run: test_ci/run_tests.sh
 
-#####################################################################
+        #######################################################
+      - name: Install Docker Compose
+        run: sudo apt-get install docker-compose -y
+
+      - name: Start Docker Compose services
+        run: docker-compose -f ./docker-compose.yml up -d
+
       - name: Expose application on port 8005
         run: python -m http.server 8005 &
         env:
           Test CI: true
-##
