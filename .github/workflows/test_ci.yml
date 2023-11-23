@@ -25,3 +25,9 @@ jobs:
       - name: Run tests
         #run: ./run_tests.sh
         run: test_ci/run_tests.sh
+
+#####################################################################
+      - name: Expose application on port 8005
+        run: python -m http.server 8005 &
+        env:
+          Test CI: true
