@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################### Modification du répertoire #######################################
-cd test_ci
+#cd test_ci
 ######################################################################################
 
 # Exécution de tous les fichiers de test
