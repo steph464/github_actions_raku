@@ -13,10 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.9
+      #- name: Set up Python
+      #  uses: actions/setup-python@v3
+      #  with:
+      #    python-version: 3.9
 
         #######################################################
       - name: Install Docker Compose
@@ -26,6 +26,18 @@ jobs:
         run: docker-compose -f ./docker-compose.yml up -d
 
         ########################################################            
+      - name: Wait for API server to be ready
+        run: |
+          # Add a script to wait for the API server to be ready before proceeding
+          # Example: wait-for-it.sh script (https://github.com/vishnubob/wait-for-it)
+          chmod +x ./wait-for-it.sh
+          ./wait-for-it.sh localhost:8000 -t 100
+
+      - name: Show Docker Compose processes
+        run: docker-compose ps
+  
+      - name: Show Docker Compose logs
+        run: docker-compose logs
 
       - name: Install dependencies
         run: |
