@@ -1,0 +1,32 @@
+name: test_ci
+
+on:
+  push:
+    branches:
+      - main  # ajustez la branche en fonction de votre configuration
+
+jobs:
+  test_ci:
+    runs-on: [ubuntu-22.04, ubuntu-latest]  # vous pouvez ajuster le système d'exploitation en fonction de vos besoins
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9  # ajustez la version de Python en fonction de vos besoins
+
+      - name: Display directory contents
+        run: ls -R  # Ajout de cette étape pour déboguer le contenu du répertoire
+
+
+      - name: Install dependencies
+        run: |
+          pip install -r test_ci/requirements.txt  # ajustez le chemin du fichier requirements.txt si nécessaire
+
+      - name: Run tests
+        run: |
+          cd test_ci
+          ./run_tests.sh
