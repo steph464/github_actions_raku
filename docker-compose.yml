@@ -4,16 +4,9 @@ services:
   api_server:
     build:
       context: ./app_V2
-      #dockerfile: app_V4/Dockerfile.app
       dockerfile: Dockerfile.app
     ports:
-      #- "8005:8000"
       - "8005:8000"
-    #################################################################
-    # Ajout à 20h de networks pour la communication entre les 2 containers
-    networks:
-      - network_rakuten
-    #################################################################
     volumes:
       - ./app_V2:/app
       - ./BDD:/BDD
@@ -23,18 +16,13 @@ services:
     build:
       context: ./test_ci
       dockerfile: Dockerfile.test_ci
-    #################################################################
-    # Ajout à 20h de networks pour la communication entre les 2 containers
-    networks:
-      - network_rakuten
-    #################################################################
     volumes:
       - ./test_ci:/test_ci
     depends_on:
       - api_server
 
 ##############################################################
-# Ajout à 20h de networks
+# Ajout de networks
 networks:
   network_rakuten:
 ##############################################################
