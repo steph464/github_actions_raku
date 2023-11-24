@@ -1,7 +1,7 @@
 # Utilisation d'une image Alpine légère comme image de base
 #FROM python:3.8-alpine
-#FROM python:3.9-alpine
-FROM python:3.9    
+FROM python:3.9-alpine
+#FROM python:3.9    
 
 # Répertoire de travail /app/tests
 #WORKDIR /app/tests
@@ -22,11 +22,15 @@ COPY . .
 
 ############ AJOUT ################
 # Afficher le contenu du répertoire de travail du conteneur
-RUN ls -l
+#RUN ls -l
 #########################################
 
 # Installation des dépendances (requests)
 #RUN pip install requests
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    # Autres dépendances système 
+    && rm -rf /var/lib/apt/lists/*
 
 # installation des librairies à partir du fichier requirements.txt
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
