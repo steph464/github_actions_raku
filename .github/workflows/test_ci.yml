@@ -44,7 +44,9 @@ jobs:
         #run: docker-compose exec test_ci /test_ci/run_tests.sh
         run: |
           cd test_ci
-          ./run_tests.sh
+          run_test.sh
+
+#          ./run_tests.sh
 
 
 
