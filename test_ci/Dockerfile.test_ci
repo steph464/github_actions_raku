@@ -27,10 +27,6 @@ COPY . .
 
 # Installation des dépendances (requests)
 #RUN pip install requests
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    # Autres dépendances système 
-    && rm -rf /var/lib/apt/lists/*
 
 # installation des librairies à partir du fichier requirements.txt
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
@@ -47,6 +43,9 @@ RUN chmod +x /test_ci/run_tests.sh
 
 # Exécuter cron en arrière-plan 
 #CMD ["crond", "-f"] 
+
+# Exposez le port sur lequel l'application s'exécute 
+EXPOSE 8000
 
 # Commande pour exécuter les tests
 #CMD ["python", "test_authen.py"]
