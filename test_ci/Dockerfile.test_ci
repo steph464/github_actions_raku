@@ -1,6 +1,7 @@
 # Utilisation d'une image Alpine légère comme image de base
 #FROM python:3.8-alpine
-FROM python:3.9-alpine
+#FROM python:3.9-alpine
+FROM python:3.9    
 
 # Répertoire de travail /app/tests
 #WORKDIR /app/tests
@@ -19,6 +20,10 @@ WORKDIR /test_ci
 #COPY ./run_tests.sh /tests/ 
 COPY . .
 
+############ AJOUT ################
+# Afficher le contenu du répertoire de travail du conteneur
+RUN ls -l
+#########################################
 
 # Installation des dépendances (requests)
 #RUN pip install requests
@@ -44,7 +49,8 @@ RUN chmod +x /test_ci/run_tests.sh
 #CMD ["./run_tests.sh"]
 #CMD ["/tests/run_tests.sh"]
 CMD ["/test_ci/run_tests.sh"] > logs.txt  
-#CMD ["/run_tests.sh"] > logs.txt  
+#CMD ["./run_tests.sh"] > logs.txt
+#CMD ["./run_tests.sh"]  
 
 # Exécution cron en arrière-plan
 #CMD crond -f -d 8 & /app/tests/run_tests1.sh > log.txt
