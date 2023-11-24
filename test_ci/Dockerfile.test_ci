@@ -4,8 +4,8 @@ FROM python:3.9-alpine
 
 # Répertoire de travail /app/tests
 #WORKDIR /app/tests
-WORKDIR /tests
-#WORKDIR /test_ci
+#WORKDIR /tests
+WORKDIR /test_ci
 
 # Copie de tous les fichiers de test dans le répertoire /app/tests du conteneur
 # rendre le fichier run_tests.sh executable 
@@ -28,8 +28,8 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Rendre le script exécutable
 # /!\ A MODIFIER    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-RUN chmod +x /tests/run_tests.sh
-#RUN chmod +x /test_ci/run_tests.sh
+#RUN chmod +x /tests/run_tests.sh
+RUN chmod +x /test_ci/run_tests.sh
 
 # Le cronjob est configuré pour s'exécuter quotidiennement à minuit (00:00)
 #RUN echo "0 0 * * * /app/tests/run_tests1.sh > /app/tests/log.txt 2>&1 && cp /app/tests/log.txt /home/workspace_2/test_CI_CD" >> /var/spool/cron/crontabs/root
@@ -42,8 +42,8 @@ RUN chmod +x /tests/run_tests.sh
 # Commande pour exécuter les tests
 #CMD ["python", "test_authen.py"]
 #CMD ["./run_tests.sh"]
-CMD ["/tests/run_tests.sh"]
-#CMD ["/test_ci/run_tests.sh"] > logs.txt  
+#CMD ["/tests/run_tests.sh"]
+CMD ["/test_ci/run_tests.sh"] > logs.txt  
 #CMD ["/run_tests.sh"] > logs.txt  
 
 # Exécution cron en arrière-plan
