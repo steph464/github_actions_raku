@@ -8,8 +8,8 @@ import json
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Importation des fonctions delete_user et load_users depuis user_db.py  
-#from app_V2.user.user_db import delete_user, load_users
-from app.user.user_db import delete_user, load_users
+from app_V2.user.user_db import delete_user, load_users
+#from app.user.user_db import delete_user, load_users
 
 # Définition de l'adresse de l'API et du port
 api_address = 'localhost'  # adresse de votre API
