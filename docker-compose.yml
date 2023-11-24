@@ -18,6 +18,8 @@ services:
     build:
       context: ./test_ci
       dockerfile: Dockerfile.test_ci
+    ports:
+      - "8006:8000"
     networks:
       - network_rakuten
     volumes:
