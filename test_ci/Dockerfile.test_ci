@@ -17,7 +17,8 @@ WORKDIR /test_ci
 #COPY ./test_predimage.py /tests/
 #COPY ./test_predtexte.py /tests/
 #COPY ./run_tests.sh /tests/ 
-COPY . /.
+#COPY . .
+COPY ./ .
 
 # Installation des dépendances (requests)
 #RUN pip install requests
