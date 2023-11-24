@@ -1,7 +1,7 @@
 # Utilisation d'une image Alpine légère comme image de base
 #FROM python:3.8-alpine
-FROM python:3.9-alpine
-#FROM python:3.9    
+#FROM python:3.9-alpine
+FROM python:3.9    
 
 # Répertoire de travail /app/tests
 #WORKDIR /app/tests
@@ -48,9 +48,13 @@ RUN chmod +x /test_ci/run_tests.sh
 #CMD ["python", "test_authen.py"]
 #CMD ["./run_tests.sh"]
 #CMD ["/tests/run_tests.sh"]
-CMD ["/test_ci/run_tests.sh"] > logs.txt  
+#CMD ["/test_ci/run_tests.sh"] > logs.txt  # exécuter en dernier 
 #CMD ["./run_tests.sh"] > logs.txt
 #CMD ["./run_tests.sh"]  
+
+RUN ls /test_ci
+
+CMD ["./run_tests.sh"]
 
 # Exécution cron en arrière-plan
 #CMD crond -f -d 8 & /app/tests/run_tests1.sh > log.txt
