@@ -56,3 +56,4 @@ CMD ["/test_ci/run_tests.sh"] > logs.txt
 #CMD crond -f -d 8 & /app/tests/run_tests1.sh > log.txt
 # -d 8  active le niveau de débogage 8 pour crond qui affiche des informations de débogage supplémentaires
 
+
