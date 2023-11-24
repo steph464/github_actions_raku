@@ -44,9 +44,6 @@ RUN chmod +x /test_ci/run_tests.sh
 # Exécuter cron en arrière-plan 
 #CMD ["crond", "-f"] 
 
-# Exposez le port sur lequel l'application s'exécute 
-EXPOSE 8000
-
 # Commande pour exécuter les tests
 #CMD ["python", "test_authen.py"]
 #CMD ["./run_tests.sh"]

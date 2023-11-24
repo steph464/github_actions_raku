@@ -2,4 +2,4 @@ requests
 ########### AJOUT OK ##############
 passlib==1.7.4
 
-uvicorn==0.23.2
+#uvicorn==0.23.2
