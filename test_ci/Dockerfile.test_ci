@@ -5,6 +5,7 @@
 
 ################################################## ajout le 04/12/23 ################################################################
 FROM alpine:3.16.8 
+FROM alpine:latest
 ####################################################################################################################################
 
 # Répertoire de travail /app/tests
@@ -32,10 +33,10 @@ COPY . .
 
 ################################################## ajout le 04/12/23 ###############################################################
 #Install Python
-RUN apk add --update --no-cache python3 \
-    && ln -sf python3 /usr/bin/python3 \
-    && python3 -m ensurepip \
-    && pip3 install --no-cache-dir --upgrade pip setuptools
+#RUN apk add --update --no-cache python3 \
+#    && ln -sf python3 /usr/bin/python3 \
+#    && python3 -m ensurepip \
+#    && pip3 install --no-cache-dir --upgrade pip setuptools
 ####################################################################################################################################
 
 # Installation des dépendances (requests)
