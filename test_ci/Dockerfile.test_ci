@@ -37,13 +37,24 @@ COPY . .
 #    && ln -sf python3 /usr/bin/python3 \
 #    && python3 -m ensurepip \
 #    && pip3 install --no-cache-dir --upgrade pip setuptools
+
+
+# Installing Python3 and pip. Using `python3` to ensure the correct version.
+RUN apk add --update --no-cache python3 py3-pip \
+    && ln -sf python3 /usr/bin/python \
+    && pip3 install --no-cache-dir --upgrade pip setuptools
+
 ####################################################################################################################################
 
 # Installation des dépendances (requests)
 #RUN pip install requests
 
 # installation des librairies à partir du fichier requirements.txt
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+#RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+################################# ajout le 05/12/23 ###################################################
+RUN pip3 install --no-cache-dir -r requirements.txt
+#######################################################################################################
 
 # Rendre le script exécutable
 # /!\ A MODIFIER    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
