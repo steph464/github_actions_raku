@@ -74,8 +74,8 @@ RUN chmod +x /test_ci/run_tests.sh
 #CMD ["./run_tests.sh"]
 #CMD ["/tests/run_tests.sh"]
 #CMD ["/test_ci/run_tests.sh"] > logs.txt  # exécuter en dernier 
-CMD ["./run_tests.sh"] > logs.txt
-#CMD ["./run_tests.sh"]  
+#CMD ["./run_tests.sh"] > logs.txt
+CMD ["./run_tests.sh"]  
 
 ################################################## ajout le 04/12/23 ###############################################################
 #CMD ["/bin/bash/", "-c", "./run_tests.sh"]

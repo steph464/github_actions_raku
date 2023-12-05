@@ -13,7 +13,7 @@
 #ls  # Liste le contenu du répertoire
 ######################################################################################
 # Attente pour laisser les conteneurs démarrer
-sleep 20
+#sleep 20
 #######################################################################################
 
 # Exécution de tous les fichiers de test
