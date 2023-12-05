@@ -74,21 +74,16 @@ RUN chmod +x /test_ci/run_tests.sh
 #CMD ["./run_tests.sh"]
 #CMD ["/tests/run_tests.sh"]
 #CMD ["/test_ci/run_tests.sh"] > logs.txt  # exécuter en dernier 
-#CMD ["./run_tests.sh"] > logs.txt
+CMD ["./run_tests.sh"] > logs.txt
 #CMD ["./run_tests.sh"]  
 
 ################################################## ajout le 04/12/23 ###############################################################
 #CMD ["/bin/bash/", "-c", "./run_tests.sh"]
 #CMD ["/bin/bash", "-c", "./run_tests.sh"]
-#CMD ["sh", "-c", "./run_tests.sh"]   OK pour tests pb avec chemin
+#CMD ["sh", "-c", "./run_tests.sh"]   OK pour tests pb avec chemin   test_ci_1     | sh: ./run_tests.sh: not found
+#CMD ["sh", "-c", "run_tests.sh"]  # test_ci_1     | sh: run_tests.sh: not found
 #CMD ["sh", "-c", "./run_tests.sh"]
-CMD ["sh", "-c", "run_tests.sh"]
 
-
-
-
-
-#CMD [ "sh", "-c", "github_actions_raku/test_ci/run_tests.sh"]
 #######################################################################################################################
 #######################################################################################################################
 #RUN ls /test_ci
